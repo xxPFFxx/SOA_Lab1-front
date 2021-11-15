@@ -90,7 +90,8 @@ const mainMiddleware = store => next => action => {
                 }
             };
             req.onerror = ()=>alert("Server is unavailable");
-            req.send(toJSON(store.getState().currentHumanBeing));
+            console.log(toJSON(transferFormDataToHumanBeingDTO(store.getState().currentHumanBeing)))
+            req.send(toJSON(transferFormDataToHumanBeingDTO(store.getState().currentHumanBeing)));
             return next(action)
         }
         default:{
@@ -98,6 +99,27 @@ const mainMiddleware = store => next => action => {
         }
 
     }
+}
+
+function transferFormDataToHumanBeingDTO(form) {
+    let result = {};
+    result.name = form.name;
+    result.coordinates = {};
+    result.coordinates.x = form.coords_x;
+    result.coordinates.y = form.coords_y;
+
+    result.realHero = form.realHero + "";
+    result.hasToothpick = form.hasToothpick + "";
+    result.impactSpeed = form.impactSpeed;
+    result.soundtrackName = form.soundtrackName;
+    result.weaponType = form.weaponType;
+    result.mood = form.mood;
+
+    result.car = {};
+    result.car.name = form.car_name;
+    result.car.cool = form.car_cool + "";
+    let humanBeingList = {"humanBeingList" : [result]}
+    return humanBeingList;
 }
 
 function applySort(filter, name, result){

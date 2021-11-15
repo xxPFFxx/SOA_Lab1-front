@@ -34,6 +34,7 @@ const mainReducer = (state={}, action)=>{
             let humanBeing = state.currentHumanBeing;
             humanBeing[action.value.fieldName] = action.value.value;
             return Object.assign({}, state, {currentHumanBeing: humanBeing})
+
         }
         case ("UPDATE_CURRENT_TICKET"):{
             return Object.assign({}, state, {currentHumanBeing: fromHumanBeing(action.value.humanBeing)})
@@ -42,7 +43,13 @@ const mainReducer = (state={}, action)=>{
             let humanBeing = state.currentHumanBeing;
             for(let field in humanBeing){
                 if (Object.prototype.hasOwnProperty.call(humanBeing, field)) {
-                    humanBeing[field] = "";
+                    if (field === "hasToothpick" || field === "realHero" || field === "car_cool"){
+                        humanBeing[field] = false;
+                    }
+                    else{
+                        humanBeing[field] = "";
+                    }
+
                 }
             }
             return Object.assign({}, state, {currentHumanBeing: humanBeing})

@@ -22,7 +22,7 @@ class EditWindow extends React.Component{
                             <Col>
                                 <Form.Group>
                                     <Form.Label>Real Hero</Form.Label>
-                                    <Form.Check type="text" value={this.props.humanBeing.realHero} onChange={(e)=>this.handleChange(e, "realHero")}/>
+                                    <Form.Check type="checkbox" value={this.props.humanBeing.realHero} onChange={(e)=>this.handleBooleanChange(e, "realHero")}/>
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -30,7 +30,7 @@ class EditWindow extends React.Component{
                             <Col>
                                 <Form.Group>
                                     <Form.Label>HasToothpick</Form.Label>
-                                    <Form.Control type="text" value={this.props.humanBeing.hasToothpick} onChange={(e)=>this.handleChange(e, "hasToothpick")}/>
+                                    <Form.Check type="checkbox" value={this.props.humanBeing.hasToothpick} onChange={(e)=>this.handleBooleanChange(e, "hasToothpick")}/>
                                 </Form.Group>
                             </Col>
                             <Col>
@@ -76,12 +76,6 @@ class EditWindow extends React.Component{
                         <Row>
                             <Col>
                                 <Form.Group>
-                                    <Form.Label>Car ID</Form.Label>
-                                    <Form.Control type="number" value={this.props.humanBeing.car_id} onChange={(e)=>this.handleChange(e, "car_id")}/>
-                                </Form.Group>
-                            </Col>
-                            <Col>
-                                <Form.Group>
                                     <Form.Label>Car name</Form.Label>
                                     <Form.Control type="text" value={this.props.humanBeing.car_name} onChange={(e)=>this.handleChange(e, "car_name")}/>
                                 </Form.Group>
@@ -91,7 +85,7 @@ class EditWindow extends React.Component{
                             <Col>
                                 <Form.Group>
                                     <Form.Label>Car cool</Form.Label>
-                                    <Form.Control type="text" value={this.props.humanBeing.car_cool} onChange={(e)=>this.handleChange(e, "car_cool")}/>
+                                    <Form.Check type="checkbox" value={this.props.humanBeing.car_cool} onChange={(e)=>this.handleBooleanChange(e, "car_cool")}/>
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -129,6 +123,13 @@ class EditWindow extends React.Component{
         let mode = this.props.mode;
         this.props.dispatch({type: "SET_MODE", value:{mode: 0}})
         this.props.dispatch({type: "UPDATE_CURRENT_TICKET_FIELD", value:{fieldName: field, value: e.target.value}});
+        this.props.dispatch({type: "SET_MODE", value:{mode: mode}})
+    }
+
+    handleBooleanChange(e, field){
+        let mode = this.props.mode;
+        this.props.dispatch({type: "SET_MODE", value:{mode: 0}})
+        this.props.dispatch({type: "UPDATE_CURRENT_TICKET_FIELD", value:{fieldName: field, value: e.target.checked}});
         this.props.dispatch({type: "SET_MODE", value:{mode: mode}})
     }
 }

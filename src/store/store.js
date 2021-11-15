@@ -16,15 +16,15 @@ const initialState = {
             coords_x: "",
             coords_y: "",
             date: "",
-            realHero: "",
-            hasToothpick: "",
+            realHero: true,
+            hasToothpick: false,
             impactSpeed: "",
             soundtrackName : "",
             weaponType : "",
             mood : "",
             car_id: "",
             car_name: "",
-            car_cool: "",
+            car_cool: false,
         },
     filters:
         {
