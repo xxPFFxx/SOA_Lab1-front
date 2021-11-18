@@ -60,7 +60,7 @@ const mainMiddleware = store => next => action => {
             };
             req.onerror = ()=>alert("Server is unavailable");
             req.setRequestHeader("content-type", "text/xml")
-            req.send(toJSON(store.getState().currentHumanBeing));
+            req.send(toJSON(transferFormDataToHumanBeingDTO(store.getState().currentHumanBeing)));
             return next(action)
         }
         case("DELETE_TICKET"):{
@@ -90,7 +90,6 @@ const mainMiddleware = store => next => action => {
                 }
             };
             req.onerror = ()=>alert("Server is unavailable");
-            console.log(toJSON(transferFormDataToHumanBeingDTO(store.getState().currentHumanBeing)))
             req.send(toJSON(transferFormDataToHumanBeingDTO(store.getState().currentHumanBeing)));
             return next(action)
         }
