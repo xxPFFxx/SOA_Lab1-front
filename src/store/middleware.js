@@ -124,7 +124,12 @@ function transferFormDataToHumanBeingDTO(form) {
 
 function applySort(filter, name, result){
     if(filter.sort !== 0){
-        return  result + `&orderBy=${name},${filter.sort === 1? "asc":"desc"}`;
+        if (result.length === 0){
+            return  result + `&orderBy=${filter.sort === 1? "+":"-"}${name}`;
+        }
+        else {
+            return  result + `;${filter.sort === 1? "+":"-"}${name}`;
+        }
     }
     else return result;
 }
