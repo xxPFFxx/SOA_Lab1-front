@@ -16,7 +16,7 @@ const initialState = {
             coords_x: "",
             coords_y: "",
             date: "",
-            realHero: true,
+            realHero: false,
             hasToothpick: false,
             impactSpeed: "",
             soundtrackName : "",
