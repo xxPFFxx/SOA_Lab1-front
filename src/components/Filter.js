@@ -23,8 +23,16 @@ class Filter extends React.Component{
                         <input type="number" id="y" className="form-control" value={this.props.filters.y.filter} onChange={(e)=>this.updateFilter(e, "y")}/>
                     </div>
                     <div className="col-auto">
+                        <label className="form-label" htmlFor="dateFormat">Date format</label>
+                        <select className="form-control" id="dateFormat" value={this.props.filters.dateFormat.filter} onChange={(e)=>this.updateFilter(e, "dateFormat")}>
+                            <option value="">None</option>
+                            <option value="after">After</option>
+                            <option value="before">Before</option>
+                        </select>
+                    </div>
+                    <div className="col-auto">
                         <label className="form-label" htmlFor="date">Date</label>
-                        <input type="" id="date" className="form-control" value={this.props.filters.date.filter} onChange={(e)=>this.updateFilter(e, "date")}/>
+                        <input type="datetime-local" id="date" className="form-control" value={this.props.filters.date.filter} onChange={(e)=>this.updateFilter(e, "date")}/>
                     </div>
                 </div>
                 <div className="row">

@@ -33,6 +33,7 @@ const initialState = {
             coordinates: {filter: null, sort: 0},
             x: {filter: null, sort: 0},
             y: {filter: null, sort: 0},
+            dateFormat : {filter : null, sort : 0},
             date: {filter: null, sort: 0},
             realHero: {filter: null, sort: 0},
             hasToothpick: {filter: null, sort: 0},

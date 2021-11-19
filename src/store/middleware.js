@@ -26,7 +26,7 @@ const mainMiddleware = store => next => action => {
             order = applyFilter(store.getState().filters.id, "id", order);
             order = applyFilter(store.getState().filters.name, "name", order);
             order = applyFilter(store.getState().filters.x, "coordinates", order, store.getState().filters.y);
-            order = applyFilter(store.getState().filters.date, "creationDate", order);
+            order = applyFilter(store.getState().filters.date, "creationDate", order, store.getState().filters.dateFormat);
             order = applyFilter(store.getState().filters.realHero, "realHero", order);
             order = applyFilter(store.getState().filters.hasToothpick, "hasToothpick", order);
             order = applyFilter(store.getState().filters.impactSpeed, "impactSpeed", order);
