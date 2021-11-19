@@ -11,7 +11,7 @@ const mainReducer = (state={}, action)=>{
             else if(humanBeing){
                 result.push(humanBeing);
             }
-
+            console.log(result);
             return Object.assign({}, state, {humanBeings: result, totalHumanBeings: parseInt(action.value.humanBeingList.length)});
         }
         case ("UPDATE_CURRENT_PAGE"): {

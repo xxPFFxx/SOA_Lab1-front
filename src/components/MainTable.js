@@ -16,12 +16,13 @@ class MainTable extends React.Component{
 
         if(this.props.humanBeings){
             for (let humanBeing of this.props.humanBeings){
+                let date = humanBeing.creationDate !== 'null' ? new Date(humanBeing.creationDate).toLocaleString() : ''
                 result.push(
                     <tr onClick={()=>this.handleClick(humanBeing)}>
                         <td>{humanBeing.id}</td>
                         <td>{humanBeing.name}</td>
                         <td>x={humanBeing.coordinates.x}, y={humanBeing.coordinates.y}</td>
-                        <td>{humanBeing.date}</td>
+                        <td>{date}</td>
                         <td>{humanBeing.realHero ? humanBeing.realHero : ""}</td>
                         <td>{humanBeing.hasToothpick ? humanBeing.hasToothpick : ""}</td>
                         <td>{humanBeing.impactSpeed ? humanBeing.impactSpeed : ""}</td>
