@@ -51,7 +51,6 @@ class EditWindow extends React.Component{
                                 <Form.Group>
                                     <Form.Label>Weapon type</Form.Label>
                                     <Form.Select value = {this.props.humanBeing.weaponType} onChange={(e)=>this.handleChange(e, "weaponType")}>
-                                        <option>Choose the weapon type</option>
                                         <option value="AXE">AXE</option>
                                         <option value="RIFLE">RIFLE</option>
                                         <option value="MACHINE_GUN">MACHINE_GUN</option>
@@ -63,7 +62,6 @@ class EditWindow extends React.Component{
                                 <Form.Group>
                                     <Form.Label>Mood</Form.Label>
                                     <Form.Select value = {this.props.humanBeing.mood} onChange={(e)=>this.handleChange(e, "mood")}>
-                                        <option>Choose the mood</option>
                                         <option value="SORROW">SORROW</option>
                                         <option value="CALM">CALM</option>
                                         <option value="RAGE">RAGE</option>

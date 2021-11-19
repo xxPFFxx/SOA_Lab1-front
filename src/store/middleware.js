@@ -22,6 +22,7 @@ const mainMiddleware = store => next => action => {
             order = applySort(store.getState().filters.mood, "mood", order);
             order = applySort(store.getState().filters.car, "car", order);
             //filtering
+            order += "&filterBy=";
             order = applyFilter(store.getState().filters.id, "id", order);
             order = applyFilter(store.getState().filters.name, "name", order);
             order = applyFilter(store.getState().filters.x, "coordinates", order, store.getState().filters.y);
@@ -33,6 +34,8 @@ const mainMiddleware = store => next => action => {
             order = applyFilter(store.getState().filters.weaponType, "weaponType", order);
             order = applyFilter(store.getState().filters.mood, "mood", order);
             order = applyFilter(store.getState().filters.car, "car", order);
+            if (order.at(order.length-1) === ';') order = order.slice(0,order.length-1);
+            console.log(order);
             req.open("GET", `${DEFAULT_URL}/human-beings?${pagination}${order}`, false);
             req.onload = ()=>{
                 if(req.status === 200){
@@ -136,9 +139,9 @@ function applySort(filter, name, result){
 function applyFilter(filter, name, result, secondFilter=null){
     if(filter.filter){
         if(secondFilter){
-            return result + `&${name}=${filter.filter},${secondFilter.filter}`;
+            return result + `${name}:${filter.filter},${secondFilter.filter};`;
         }
-        else return  result + `&${name}=${filter.filter}`;
+        else return  result + `${name}:${filter.filter};`;
     }
     else return result;
 }

@@ -24,17 +24,25 @@ class Filter extends React.Component{
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="date">Date</label>
-                        <input type="text" id="date" className="form-control" value={this.props.filters.date.filter} onChange={(e)=>this.updateFilter(e, "date")}/>
+                        <input type="" id="date" className="form-control" value={this.props.filters.date.filter} onChange={(e)=>this.updateFilter(e, "date")}/>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-auto">
                         <label className="form-label" htmlFor="realHero">RealHero</label>
-                        <input type="checkbox" id="realHero" className="form-control" value={this.props.filters.realHero.filter} onChange={(e)=>this.updateFilter(e, "realHero")}/>
+                        <select className="form-control" id="realHero" value={this.props.filters.realHero.filter} onChange={(e)=>this.updateFilter(e, "realHero")}>
+                            <option value="">None</option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="hasToothpick">HasToothpick</label>
-                        <input type="checkbox" id="hasToothpick" className="form-control" value={this.props.filters.hasToothpick.filter} onChange={(e)=>this.updateFilter(e, "hasToothpick")}/>
+                        <select className="form-control" id="hasToothpick" value={this.props.filters.hasToothpick.filter} onChange={(e)=>this.updateFilter(e, "hasToothpick")}>
+                            <option value="">None</option>
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="impactSpeed">ImpactSpeed</label>
@@ -46,15 +54,29 @@ class Filter extends React.Component{
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="weaponType">WeaponType</label>
-                        <input type="number" id="weaponType" className="form-control" value={this.props.filters.weaponType.filter} onChange={(e)=>this.updateFilter(e, "weaponType")}/>
+                        <select className="form-control" id="weaponType" value={this.props.filters.weaponType.filter} onChange={(e)=>this.updateFilter(e, "weaponType")}>
+                            <option value="">None</option>
+                            <option value="AXE">AXE</option>
+                            <option value="RIFLE">RIFLE</option>
+                            <option value="MACHINE_GUN">MACHINE_GUN</option>
+                            <option value="BAT">BAT</option>
+                        </select>
+                        {/*<input type="number" id="weaponType" className="form-control" value={this.props.filters.weaponType.filter} onChange={(e)=>this.updateFilter(e, "weaponType")}/>*/}
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="mood">Mood</label>
-                        <input type="number" id="mood" className="form-control" value={this.props.filters.mood.filter} onChange={(e)=>this.updateFilter(e, "mood")}/>
+                        <select className="form-control" id="mood" value={this.props.filters.mood.filter} onChange={(e)=>this.updateFilter(e, "mood")}>
+                            <option value="">None</option>
+                            <option value="SORROW">SORROW</option>
+                            <option value="CALM">CALM</option>
+                            <option value="RAGE">RAGE</option>
+                            <option value="FRENZY">FRENZY</option>
+                        </select>
+                        {/*<input type="number" id="mood" className="form-control" value={this.props.filters.mood.filter} onChange={(e)=>this.updateFilter(e, "mood")}/>*/}
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="car">Car</label>
-                        <input type="number" id="car" className="form-control" value={this.props.filters.car.filter} onChange={(e)=>this.updateFilter(e, "car")}/>
+                        <input type="text" id="car" className="form-control" value={this.props.filters.car.filter} onChange={(e)=>this.updateFilter(e, "car")}/>
                     </div>
                     <div className="col-auto">
                         <br/>
@@ -63,6 +85,9 @@ class Filter extends React.Component{
                 </div>
             </form>
         )
+    }
+    updateBooleanFilter(e, name){
+        this.props.dispatch({type: "UPDATE_FILTER", value:{filterName: name, value: e.target.checked}})
     }
     updateFilter(e, name){
         this.props.dispatch({type: "UPDATE_FILTER", value:{filterName: name, value: e.target.value}})
