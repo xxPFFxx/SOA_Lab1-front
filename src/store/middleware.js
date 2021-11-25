@@ -96,6 +96,36 @@ const mainMiddleware = store => next => action => {
             req.send(toJSON(transferFormDataToHumanBeingDTO(store.getState().currentHumanBeing)));
             return next(action)
         }
+        case("FIND_UNIQUE_IMPACT_SPEED"):{
+            let req = new XMLHttpRequest();
+            req.open("GET", `${DEFAULT_URL}/additional?uniqueImpactSpeed`, false);
+            req.onload = ()=>{
+                if(req.status === 200){
+                    store.dispatch({type: "UPDATE_UNIQUE_IMPACT_SPEED", value: fromJSON(req.responseText)})
+                }
+                else{
+                    store.dispatch({type: "SET_ERROR", value: {error: req.responseText}})
+                }
+            };
+            req.onerror = ()=>alert("Server is unavailable");
+            req.send();
+            return next(action)
+        }
+        case("FIND_GREATER_THAN_WEAPON_TYPE"):{
+            let req = new XMLHttpRequest();
+            req.open("GET", `${DEFAULT_URL}/additional?weaponTypeArray=${action.value}`, false);
+            req.onload = ()=>{
+                if(req.status === 200){
+                    store.dispatch({type: "UPDATE_WEAPON_TYPE_GREATER_THAN_ARRAY", value: fromJSON(req.responseText)})
+                }
+                else{
+                    store.dispatch({type: "SET_ERROR", value: {error: req.responseText}})
+                }
+            };
+            req.onerror = ()=>alert("Server is unavailable");
+            req.send();
+            return next(action)
+        }
         default:{
             return next(action)
         }

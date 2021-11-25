@@ -5,13 +5,14 @@ import Pagination from "./components/Pagination";
 import {connect} from "react-redux";
 import Filter from "./components/Filter";
 import EditWindow from "./components/EditWindow";
+import AdditionalTasks from "./components/AdditionalTasks";
 
 class App extends React.Component {
     render() {
         return (
             <div className="App">
                 <div className="pb-2 mt-4 mb-2 border-bottom">
-                    <h1>Лабораторная работа 1. Демичев Д.Д.</h1>
+                    <h1>HumanBeing Manager</h1>
                 </div>
                 <div className="alert alert-danger" role="alert" hidden={!this.props.error}>
                     {this.props.error}
@@ -21,6 +22,7 @@ class App extends React.Component {
                 <MainTable store={this.props.store}/>
                 <button className="btn btn-success" onClick={()=>this.handleAdd()}>Add humanBeing</button>
                 <Pagination store={this.props.store}/>
+                <AdditionalTasks store={this.props.store}/>
             </div>
         );
     }

@@ -9,6 +9,10 @@ const initialState = {
     pageSize: 5,
     error: null,
     mode: 0,
+    uniqueImpactSpeed : [],
+    weaponTypeGreaterThan : "",
+    weaponTypeGreaterThanArray : [],
+    totalweaponTypeGreaterThanArray : 0,
     currentHumanBeing:
         {
             id: "",

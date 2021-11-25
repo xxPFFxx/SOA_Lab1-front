@@ -11,7 +11,6 @@ const mainReducer = (state={}, action)=>{
             else if(humanBeing){
                 result.push(humanBeing);
             }
-            console.log(result);
             return Object.assign({}, state, {humanBeings: result, totalHumanBeings: parseInt(action.value.humanBeingList.length)});
         }
         case ("UPDATE_CURRENT_PAGE"): {
@@ -38,6 +37,27 @@ const mainReducer = (state={}, action)=>{
         }
         case ("UPDATE_CURRENT_TICKET"):{
             return Object.assign({}, state, {currentHumanBeing: fromHumanBeing(action.value.humanBeing)})
+        }
+
+        case("UPDATE_WEAPON_TYPE_GREATER_THAN"):{
+            return Object.assign({}, state, {weaponTypeGreaterThan: action.value})
+        }
+
+        case ("UPDATE_WEAPON_TYPE_GREATER_THAN_ARRAY"):{
+            let result = [];
+            let humanBeing = action.value.humanBeingList;
+            if(humanBeing && typeof humanBeing[Symbol.iterator] === 'function'){
+                result = humanBeing;
+            }
+            else if(humanBeing){
+                result.push(humanBeing);
+            }
+            return Object.assign({}, state, {weaponTypeGreaterThanArray: result, totalweaponTypeGreaterThanArray: parseInt(action.value.humanBeingList.length)});
+        }
+
+        case ("UPDATE_UNIQUE_IMPACT_SPEED"):{
+            console.log(action.value)
+            return Object.assign({}, state, {uniqueImpactSpeed: action.value})
         }
         case ("CLEAR_CURRENT_TICKET"): {
             let humanBeing = state.currentHumanBeing;

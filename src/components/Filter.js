@@ -5,7 +5,7 @@ class Filter extends React.Component{
     render() {
         return(
             <form>
-                <div className="row">
+                <div className="row filter">
                     <div className="col-auto">
                         <label className="form-label" htmlFor="id">ID</label>
                         <input type="number" id="id" className="form-control" value={this.props.filters.id.filter} onChange={(e)=>this.updateFilter(e, "id")}/>
@@ -35,7 +35,7 @@ class Filter extends React.Component{
                         <input type="datetime-local" id="date" className="form-control" value={this.props.filters.date.filter} onChange={(e)=>this.updateFilter(e, "date")}/>
                     </div>
                 </div>
-                <div className="row">
+                <div className="row filter">
                     <div className="col-auto">
                         <label className="form-label" htmlFor="realHero">RealHero</label>
                         <select className="form-control" id="realHero" value={this.props.filters.realHero.filter} onChange={(e)=>this.updateFilter(e, "realHero")}>
@@ -69,7 +69,6 @@ class Filter extends React.Component{
                             <option value="MACHINE_GUN">MACHINE_GUN</option>
                             <option value="BAT">BAT</option>
                         </select>
-                        {/*<input type="number" id="weaponType" className="form-control" value={this.props.filters.weaponType.filter} onChange={(e)=>this.updateFilter(e, "weaponType")}/>*/}
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="mood">Mood</label>
@@ -80,7 +79,6 @@ class Filter extends React.Component{
                             <option value="RAGE">RAGE</option>
                             <option value="FRENZY">FRENZY</option>
                         </select>
-                        {/*<input type="number" id="mood" className="form-control" value={this.props.filters.mood.filter} onChange={(e)=>this.updateFilter(e, "mood")}/>*/}
                     </div>
                     <div className="col-auto">
                         <label className="form-label" htmlFor="car">Car</label>

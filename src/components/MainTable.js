@@ -13,7 +13,6 @@ class MainTable extends React.Component{
 
     render(){
         let result = [];
-
         if(this.props.humanBeings){
             for (let humanBeing of this.props.humanBeings){
                 let date = humanBeing.creationDate !== 'null' ? new Date(humanBeing.creationDate).toLocaleString() : ''
