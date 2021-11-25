@@ -5,7 +5,6 @@ import Table from "react-bootstrap/Table";
 class AdditionalTasks extends React.Component {
     render() {
         let uniqueImpactSpeedArray = [];
-        console.log(this.props.uniqueImpactSpeed)
         if(this.props.uniqueImpactSpeed) {
             for (let impactSpeed of this.props.uniqueImpactSpeed) {
                 uniqueImpactSpeedArray.push(<tr>{impactSpeed}</tr>);
@@ -85,7 +84,6 @@ class AdditionalTasks extends React.Component {
     }
 
     findGreaterThanWeaponType(weaponType){
-        console.log(weaponType)
         this.props.dispatch({type: "FIND_GREATER_THAN_WEAPON_TYPE", value: weaponType})
     }
 

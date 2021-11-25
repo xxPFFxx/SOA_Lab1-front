@@ -34,6 +34,7 @@ class MainTable extends React.Component{
             }
         }
         return(
+
             <Table bordered hover>
                 <thead>
                     <tr>

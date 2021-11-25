@@ -139,7 +139,7 @@ class EditWindow extends React.Component{
     handleBooleanChange(e, field){
         let mode = this.props.mode;
         this.props.dispatch({type: "SET_MODE", value:{mode: 0}})
-        this.props.dispatch({type: "UPDATE_CURRENT_TICKET_FIELD", value:{fieldName: field, value: e.target.checked}});
+        this.props.dispatch({type: "UPDATE_CURRENT_TICKET_FIELD", value:{fieldName: field, value: e.target.checked.toString()}});
         this.props.dispatch({type: "SET_MODE", value:{mode: mode}})
     }
 }

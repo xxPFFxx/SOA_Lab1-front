@@ -35,7 +35,6 @@ const mainMiddleware = store => next => action => {
             order = applyFilter(store.getState().filters.mood, "mood", order);
             order = applyFilter(store.getState().filters.car, "car", order);
             if (order.at(order.length-1) === ';') order = order.slice(0,order.length-1);
-            console.log(order);
             req.open("GET", `${DEFAULT_URL}/human-beings?${pagination}${order}`, false);
             req.onload = ()=>{
                 if(req.status === 200){
@@ -62,7 +61,6 @@ const mainMiddleware = store => next => action => {
                 }
             };
             req.onerror = ()=>alert("Server is unavailable");
-            req.setRequestHeader("content-type", "text/xml")
             req.send(toJSON(transferFormDataToHumanBeingDTO(store.getState().currentHumanBeing)));
             return next(action)
         }

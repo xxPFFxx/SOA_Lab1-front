@@ -5,6 +5,7 @@ class Filter extends React.Component{
     render() {
         return(
             <form>
+                <h1>Filters</h1><hr/>
                 <div className="row filter">
                     <div className="col-auto">
                         <label className="form-label" htmlFor="id">ID</label>

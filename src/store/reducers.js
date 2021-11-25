@@ -56,7 +56,6 @@ const mainReducer = (state={}, action)=>{
         }
 
         case ("UPDATE_UNIQUE_IMPACT_SPEED"):{
-            console.log(action.value)
             return Object.assign({}, state, {uniqueImpactSpeed: action.value})
         }
         case ("CLEAR_CURRENT_TICKET"): {
