@@ -165,6 +165,9 @@ function applySort(filter, name, result){
 }
 
 function applyFilter(filter, name, result, secondFilter=null){
+    if (name === "coordinates" && (filter.filter || secondFilter.filter)){
+        return result + `${name}:${filter.filter},${secondFilter.filter};`;
+    }
     if(filter.filter){
         if(secondFilter){
             return result + `${name}:${filter.filter},${secondFilter.filter};`;

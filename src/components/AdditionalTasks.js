@@ -16,7 +16,7 @@ class AdditionalTasks extends React.Component {
             for (let humanBeing of this.props.weaponTypeGreaterThanArray){
                 let date = humanBeing.creationDate !== 'null' ? new Date(humanBeing.creationDate).toLocaleString() : ''
                 result.push(
-                    <tr onClick={()=>this.handleClick(humanBeing)}>
+                    <tr>
                         <td>{humanBeing.id}</td>
                         <td>{humanBeing.name}</td>
                         <td>x={humanBeing.coordinates.x}, y={humanBeing.coordinates.y}</td>
