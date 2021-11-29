@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import Table from "react-bootstrap/Table";
+import {Accordion} from "react-bootstrap";
 
 class AdditionalTasks extends React.Component {
     render() {
@@ -36,46 +37,56 @@ class AdditionalTasks extends React.Component {
         return (
             <form>
                 <h1>Additional Tasks</h1>
-                <div className="col-auto">
-                    <label className="form-label" htmlFor="weaponType">Вернуть количество и массив объектов, значение поля weaponType которых больше заданного.</label>
-                    <select className="form-control" id="weaponType" value={this.props.weaponTypeGreaterThan} onChange={(e)=>this.updateWeaponTypeGreaterThan(e)}>
-                        <option value="">None</option>
-                        <option value="AXE">AXE</option>
-                        <option value="RIFLE">RIFLE</option>
-                        <option value="MACHINE_GUN">MACHINE_GUN</option>
-                        <option value="BAT">BAT</option>
-                    </select>
-                </div>
-                <button type="button" className="btn btn-outline-primary" onClick={()=>this.findGreaterThanWeaponType(this.props.weaponTypeGreaterThan)}>Find</button>
-                <div>Количество : {this.props.totalWeaponTypeGreaterThanArray}</div>
-                <Table bordered hover>
-                    <thead>
-                    <tr>
-                        <th scope="col">ID </th>
-                        <th scope="col">Name </th>
-                        <th scope="col">Coordinates </th>
-                        <th scope="col">Creation Date</th>
-                        <th scope="col">RealHero  </th>
-                        <th scope="col">Has Toothpick </th>
-                        <th scope="col">Impact Speed</th>
-                        <th scope="col">Soundtrack Name </th>
-                        <th scope="col">Weapon Type </th>
-                        <th scope="col">Mood </th>
-                        <th scope="col">Car </th>
-                    </tr>
-                    </thead>
-                    <tbody>{result}</tbody>
-                </Table>
-                <div>Вернуть массив уникальных значений поля impactSpeed по всем объектам.</div>
-                <Table bordered hover>
-                    <thead>
-                    <tr>
-                        <th scope="col">impactSpeed</th>
-                    </tr>
-                    </thead>
-                    <tbody>{uniqueImpactSpeedArray}</tbody>
-                </Table>
-                <button type="button" className="btn btn-outline-primary" onClick={()=>this.findUniqueImpactSpeed()}>Find</button>
+                <Accordion>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header>Вернуть количество и массив объектов, значение поля weaponType которых больше заданного.</Accordion.Header>
+                        <Accordion.Body>
+                            <div className="col-auto">
+                            <select className="form-control" id="weaponType" value={this.props.weaponTypeGreaterThan} onChange={(e)=>this.updateWeaponTypeGreaterThan(e)}>
+                                <option value="">None</option>
+                                <option value="AXE">AXE</option>
+                                <option value="RIFLE">RIFLE</option>
+                                <option value="MACHINE_GUN">MACHINE_GUN</option>
+                                <option value="BAT">BAT</option>
+                            </select>
+                        </div>
+                        <button type="button" className="btn btn-outline-primary" onClick={()=>this.findGreaterThanWeaponType(this.props.weaponTypeGreaterThan)}>Find</button>
+                            <div>Количество : {this.props.totalWeaponTypeGreaterThanArray}</div>
+                            <Table striped bordered hover>
+                                <thead style={{backgroundColor : "rgb(55,55,55)", color : "white"}}>
+                                <tr>
+                                    <th scope="col">ID </th>
+                                    <th scope="col">Name </th>
+                                    <th scope="col">Coordinates </th>
+                                    <th scope="col">Creation Date</th>
+                                    <th scope="col">RealHero  </th>
+                                    <th scope="col">Has Toothpick </th>
+                                    <th scope="col">Impact Speed</th>
+                                    <th scope="col">Soundtrack Name </th>
+                                    <th scope="col">Weapon Type </th>
+                                    <th scope="col">Mood </th>
+                                    <th scope="col">Car </th>
+                                </tr>
+                                </thead>
+                                <tbody>{result}</tbody>
+                            </Table>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                        <Accordion.Header>Вернуть массив уникальных значений поля impactSpeed по всем объектам.</Accordion.Header>
+                        <Accordion.Body>
+                            <Table bordered hover>
+                                <thead>
+                                <tr>
+                                    <th scope="col">impactSpeed</th>
+                                </tr>
+                                </thead>
+                                <tbody>{uniqueImpactSpeedArray}</tbody>
+                            </Table>
+                            <button type="button" className="btn btn-outline-primary" onClick={()=>this.findUniqueImpactSpeed()}>Find</button>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                </Accordion>
             </form>
         )
     }

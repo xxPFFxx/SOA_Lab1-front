@@ -20,7 +20,7 @@ class App extends React.Component {
                 <EditWindow store={this.props.store}/>
                 <Filter store={this.props.store}/><br/>
                 <MainTable store={this.props.store}/>
-                <button className="btn btn-success" onClick={()=>this.handleAdd()}>Add humanBeing</button>
+                <button className="btn btn-primary" onClick={()=>this.handleAdd()}>Add humanBeing</button>
                 <Pagination store={this.props.store}/>
                 <AdditionalTasks store={this.props.store}/>
             </div>

@@ -35,8 +35,8 @@ class MainTable extends React.Component{
         }
         return(
 
-            <Table bordered hover>
-                <thead>
+            <Table striped bordered hover>
+                <thead style={{backgroundColor : "rgb(55,55,55)", color : "white"}}>
                     <tr>
                         <th scope="col">ID <FontAwesomeIcon icon={this.props.filters.id.sort===0 ? faSort : this.props.filters.id.sort===1? faSortUp : faSortDown} onClick={()=>this.sort("id")}/></th>
                         <th scope="col">Name <FontAwesomeIcon icon={this.props.filters.name.sort===0 ? faSort : this.props.filters.name.sort===1? faSortUp : faSortDown} onClick={()=>this.sort("name")}/></th>

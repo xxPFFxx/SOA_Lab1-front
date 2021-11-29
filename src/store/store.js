@@ -6,13 +6,13 @@ const initialState = {
     humanBeings: [],
     totalHumanBeings: 0,
     currentPage: 1,
-    pageSize: 5,
+    pageSize: 10,
     error: null,
     mode: 0,
     uniqueImpactSpeed : [],
     weaponTypeGreaterThan : "",
     weaponTypeGreaterThanArray : [],
-    totalweaponTypeGreaterThanArray : 0,
+    totalWeaponTypeGreaterThanArray : 0,
     currentHumanBeing:
         {
             id: "",
