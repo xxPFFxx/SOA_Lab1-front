@@ -148,8 +148,7 @@ function transferFormDataToHumanBeingDTO(form) {
     result.car = {};
     result.car.name = form.car_name;
     result.car.cool = form.car_cool + "";
-    let humanBeingList = {"humanBeingList" : [result]}
-    return humanBeingList;
+    return result;
 }
 
 function applySort(filter, name, result){
