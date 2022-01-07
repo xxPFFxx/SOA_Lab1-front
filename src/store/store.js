@@ -29,6 +29,8 @@ const initialState = {
             car_id: "",
             car_name: "",
             car_cool: false,
+            team_id: "",
+            team_name: ""
         },
     filters:
         {
@@ -45,7 +47,8 @@ const initialState = {
             soundtrackName: {filter: null, sort: 0},
             weaponType: {filter: null, sort: 0},
             mood: {filter: null, sort: 0},
-            car: {filter: null, sort: 0}
+            car: {filter: null, sort: 0},
+            team: {filter: null, sort: 0}
         }
 }
 

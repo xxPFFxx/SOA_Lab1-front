@@ -29,6 +29,7 @@ class MainTable extends React.Component{
                         <td>{humanBeing.weaponType ? humanBeing.weaponType : ""}</td>
                         <td>{humanBeing.mood ? humanBeing.mood : ""}</td>
                         <td>{humanBeing.car ? humanBeing.car.name : ""}</td>
+                        <td>{humanBeing.team ? humanBeing.team.name : ""}</td>
                     </tr>
                 )
             }
@@ -49,6 +50,7 @@ class MainTable extends React.Component{
                         <th scope="col">Weapon Type <FontAwesomeIcon icon={this.props.filters.weaponType.sort===0 ? faSort : this.props.filters.weaponType.sort===1? faSortUp : faSortDown} onClick={()=>this.sort("weaponType")}/></th>
                         <th scope="col">Mood <FontAwesomeIcon icon={this.props.filters.mood.sort===0 ? faSort : this.props.filters.mood.sort===1? faSortUp : faSortDown} onClick={()=>this.sort("mood")}/></th>
                         <th scope="col">Car <FontAwesomeIcon icon={this.props.filters.car.sort===0 ? faSort : this.props.filters.car.sort===1? faSortUp : faSortDown} onClick={()=>this.sort("car")}/></th>
+                        <th scope="col">Team <FontAwesomeIcon icon={this.props.filters.team.sort===0 ? faSort : this.props.filters.team.sort===1? faSortUp : faSortDown} onClick={()=>this.sort("team")}/></th>
                     </tr>
                 </thead>
                 <tbody>{result}</tbody>

@@ -21,6 +21,8 @@ export function fromHumanBeing(humanBeing){
         mood : humanBeing.mood ? humanBeing.mood : "",
         car_id: humanBeing.car ? humanBeing.car.id : "",
         car_name: humanBeing.car ? humanBeing.car.name : "",
-        car_cool: humanBeing.car && humanBeing.car.cool ? humanBeing.car.cool : false
+        car_cool: humanBeing.car && humanBeing.car.cool ? humanBeing.car.cool : false,
+        team_id: humanBeing.team ? humanBeing.team.id : "",
+        team_name: humanBeing.team ? humanBeing.team.name : ""
     }
 }

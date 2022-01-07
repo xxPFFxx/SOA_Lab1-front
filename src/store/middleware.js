@@ -21,6 +21,7 @@ const mainMiddleware = store => next => action => {
             order = applySort(store.getState().filters.weaponType, "weaponType", order);
             order = applySort(store.getState().filters.mood, "mood", order);
             order = applySort(store.getState().filters.car, "car", order);
+            order = applySort(store.getState().filters.team, "team", order);
             //filtering
             order += "&filterBy=";
             order = applyFilter(store.getState().filters.id, "id", order);
@@ -34,6 +35,7 @@ const mainMiddleware = store => next => action => {
             order = applyFilter(store.getState().filters.weaponType, "weaponType", order);
             order = applyFilter(store.getState().filters.mood, "mood", order);
             order = applyFilter(store.getState().filters.car, "car", order);
+            order = applyFilter(store.getState().filters.team, "team", order);
             if (order.at(order.length-1) === ';') order = order.slice(0,order.length-1);
             req.open("GET", `${DEFAULT_URL}/human-beings?${pagination}${order}`, false);
             req.onload = ()=>{
@@ -52,6 +54,7 @@ const mainMiddleware = store => next => action => {
         case("UPDATE_TICKET"):{
             let req = new XMLHttpRequest();
             req.open("PUT", `${DEFAULT_URL}/human-beings/${store.getState().currentHumanBeing.id}`, false);
+            req.setRequestHeader("Content-Type", "application/json");
             req.onload = ()=>{
                 if(req.status === 200){
                     store.dispatch({type: "LOAD_TICKETS"})
@@ -82,6 +85,7 @@ const mainMiddleware = store => next => action => {
         case("ADD_TICKET"):{
             let req = new XMLHttpRequest();
             req.open("POST", `${DEFAULT_URL}/human-beings`, false);
+            req.setRequestHeader("Content-Type", "application/json");
             req.onload = ()=>{
                 if(req.status === 200){
                     store.dispatch({type: "LOAD_TICKETS"})
@@ -148,6 +152,9 @@ function transferFormDataToHumanBeingDTO(form) {
     result.car = {};
     result.car.name = form.car_name;
     result.car.cool = form.car_cool + "";
+
+    result.team = {};
+    result.team.name = form.team_name;
     return result;
 }
 
