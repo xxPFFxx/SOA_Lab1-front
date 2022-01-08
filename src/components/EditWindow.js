@@ -80,6 +80,12 @@ class EditWindow extends React.Component{
                                     <Form.Control type="text" value={this.props.humanBeing.car_name} onChange={(e)=>this.handleChange(e, "car_name")}/>
                                 </Form.Group>
                             </Col>
+                            <Col>
+                                <Form.Group>
+                                    <Form.Label>Team name</Form.Label>
+                                    <Form.Control type="text" value={this.props.humanBeing.team_name} onChange={(e)=>this.handleChange(e, "team_name")}/>
+                                </Form.Group>
+                            </Col>
                         </Row>
                         <Row>
                             <Col>

@@ -1,4 +1,4 @@
-import {DEFAULT_URL} from '../index'
+import {DEFAULT_URL, DEFAULT_URL_SECOND_SERVICE} from '../index'
 import {applyMiddleware} from "redux";
 import {fromJSON, toJSON} from "../util/humanBeingUtil";
 
@@ -119,6 +119,36 @@ const mainMiddleware = store => next => action => {
             req.onload = ()=>{
                 if(req.status === 200){
                     store.dispatch({type: "UPDATE_WEAPON_TYPE_GREATER_THAN_ARRAY", value: fromJSON(req.responseText)})
+                }
+                else{
+                    store.dispatch({type: "SET_ERROR", value: {error: req.responseText}})
+                }
+            };
+            req.onerror = ()=>alert("Server is unavailable");
+            req.send();
+            return next(action)
+        }
+        case("REMOVE_WITHOUT_TOOTHPICK"):{
+            let req = new XMLHttpRequest();
+            req.open("GET", `${DEFAULT_URL_SECOND_SERVICE}/team/${action.value}/remove-without-toothpick`, false);
+            req.onload = ()=>{
+                if(req.status === 200){
+                    store.dispatch({type: "LOAD_TICKETS"})
+                }
+                else{
+                    store.dispatch({type: "SET_ERROR", value: {error: req.responseText}})
+                }
+            };
+            req.onerror = ()=>alert("Server is unavailable");
+            req.send();
+            return next(action)
+        }
+        case("MAKE_MOST_DEPRESSIVE"):{
+            let req = new XMLHttpRequest();
+            req.open("GET", `${DEFAULT_URL_SECOND_SERVICE}/team/${action.value}/make-depressive`, false);
+            req.onload = ()=>{
+                if(req.status === 200){
+                    store.dispatch({type: "LOAD_TICKETS"})
                 }
                 else{
                     store.dispatch({type: "SET_ERROR", value: {error: req.responseText}})

@@ -13,6 +13,8 @@ const initialState = {
     weaponTypeGreaterThan : "",
     weaponTypeGreaterThanArray : [],
     totalWeaponTypeGreaterThanArray : 0,
+    removeToothpickTeamId : 0,
+    sadnessTeamId: 0,
     currentHumanBeing:
         {
             id: "",

@@ -43,6 +43,14 @@ const mainReducer = (state={}, action)=>{
             return Object.assign({}, state, {weaponTypeGreaterThan: action.value})
         }
 
+        case("UPDATE_REMOVE_TOOTHPICK_TEAM_ID"):{
+            return Object.assign({}, state, {removeToothpickTeamId: action.value})
+        }
+
+        case("UPDATE_SADNESS_TEAM_ID"):{
+            return Object.assign({}, state, {sadnessTeamId: action.value})
+        }
+
         case ("UPDATE_WEAPON_TYPE_GREATER_THAN_ARRAY"):{
             let result = [];
             let humanBeing = action.value.humanBeingList;

@@ -86,6 +86,20 @@ class AdditionalTasks extends React.Component {
                             <button type="button" className="btn btn-outline-primary" onClick={()=>this.findUniqueImpactSpeed()}>Find</button>
                         </Accordion.Body>
                     </Accordion.Item>
+                    <Accordion.Item eventKey="2">
+                        <Accordion.Header>Удалить из команды всех героев без зубочисток.</Accordion.Header>
+                        <Accordion.Body>
+                            <input type="number" id="team_id_toothpick" className="form-control" placeholder="Input the team_id" value={this.props.removeToothpickTeamId} onChange={(e)=>this.updateRemoveToothpickTeamId(e)}/>
+                            <button type="button" className="btn btn-outline-primary" onClick={()=>this.removeWithoutToothpick(this.props.removeToothpickTeamId)}>Submit</button>
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="3">
+                        <Accordion.Header>Поменять всем героям команды настроение на максимально печальное.</Accordion.Header>
+                        <Accordion.Body>
+                            <input type="number" id="team_id_sad" className="form-control" placeholder="Input the team_id" value={this.props.sadnessTeamId} onChange={(e)=>this.updateSadnessTeamId(e)}/>
+                            <button type="button" className="btn btn-outline-primary" onClick={()=>this.makeMostDepressive(this.props.sadnessTeamId)}>Submit</button>
+                        </Accordion.Body>
+                    </Accordion.Item>
                 </Accordion>
             </form>
         )
@@ -94,12 +108,28 @@ class AdditionalTasks extends React.Component {
         this.props.dispatch({type: "UPDATE_WEAPON_TYPE_GREATER_THAN", value:e.target.value})
     }
 
+    updateRemoveToothpickTeamId(e){
+        this.props.dispatch({type: "UPDATE_REMOVE_TOOTHPICK_TEAM_ID", value:e.target.value})
+    }
+
+    updateSadnessTeamId(e){
+        this.props.dispatch({type: "UPDATE_SADNESS_TEAM_ID", value:e.target.value})
+    }
+
     findGreaterThanWeaponType(weaponType){
         this.props.dispatch({type: "FIND_GREATER_THAN_WEAPON_TYPE", value: weaponType})
     }
 
     findUniqueImpactSpeed(){
         this.props.dispatch({type: "FIND_UNIQUE_IMPACT_SPEED"})
+    }
+
+    removeWithoutToothpick(teamId){
+        this.props.dispatch({type: "REMOVE_WITHOUT_TOOTHPICK", value: teamId})
+    }
+
+    makeMostDepressive(teamId){
+        this.props.dispatch({type: "MAKE_MOST_DEPRESSIVE", value: teamId})
     }
 
     updateFilter(e, name){
@@ -116,7 +146,9 @@ const mapStateToProps = function(store) {
         uniqueImpactSpeed: store.uniqueImpactSpeed,
         weaponTypeGreaterThan: store.weaponTypeGreaterThan,
         weaponTypeGreaterThanArray: store.weaponTypeGreaterThanArray,
-        totalWeaponTypeGreaterThanArray: store.totalweaponTypeGreaterThanArray
+        totalWeaponTypeGreaterThanArray: store.totalweaponTypeGreaterThanArray,
+        removeToothpickTeamId: store.removeToothpickTeamId,
+        sadnessTeamId: store.sadnessTeamId
     }
 };
 
