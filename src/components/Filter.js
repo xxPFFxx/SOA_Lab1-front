@@ -138,15 +138,6 @@ class Filter extends React.Component{
                                     </div>
                                 </Accordion.Body>
                             </Accordion.Item>
-                            <Accordion.Item eventKey="11">
-                                <Accordion.Header>Team</Accordion.Header>
-                                <Accordion.Body>
-                                    <div className="col-auto">
-                                        <label className="form-label" htmlFor="team">Team</label>
-                                        <input type="text" id="team" className="form-control" value={this.props.filters.team.filter} onChange={(e)=>this.updateFilter(e, "team")}/>
-                                    </div>
-                                </Accordion.Body>
-                            </Accordion.Item>
                         </Col>
                     </Row>
                 </Container>

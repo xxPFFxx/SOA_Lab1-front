@@ -130,7 +130,7 @@ const mainMiddleware = store => next => action => {
         }
         case("REMOVE_WITHOUT_TOOTHPICK"):{
             let req = new XMLHttpRequest();
-            req.open("GET", `${DEFAULT_URL_SECOND_SERVICE}/team/${action.value}/remove-without-toothpick`, false);
+            req.open("POST", `${DEFAULT_URL_SECOND_SERVICE}/team/${action.value}/remove-without-toothpick`, false);
             req.onload = ()=>{
                 if(req.status === 200){
                     store.dispatch({type: "LOAD_TICKETS"})
@@ -145,7 +145,7 @@ const mainMiddleware = store => next => action => {
         }
         case("MAKE_MOST_DEPRESSIVE"):{
             let req = new XMLHttpRequest();
-            req.open("GET", `${DEFAULT_URL_SECOND_SERVICE}/team/${action.value}/make-depressive`, false);
+            req.open("POST", `${DEFAULT_URL_SECOND_SERVICE}/team/${action.value}/make-depressive`, false);
             req.onload = ()=>{
                 if(req.status === 200){
                     store.dispatch({type: "LOAD_TICKETS"})
